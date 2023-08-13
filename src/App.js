@@ -29,6 +29,9 @@ class App extends React.Component {
         },
       ],
     }
+    this.addUser = this.addUser.bind(this)
+    this.deleteUser = this.deleteUser.bind(this)
+    this.editUser = this.editUser.bind(this)
   }
 
   render() {
@@ -36,13 +39,36 @@ class App extends React.Component {
       <div>
         <Header title="Список пользователей" />
         <main>
-          <Users users={this.state.users} />
+          <Users
+            users={this.state.users}
+            onDelete={this.deleteUser}
+            onEdit={this.editUser}
+          />
         </main>
         <aside>
-          <AddUserForm />
+          <AddUserForm onAdd={this.addUser} />
         </aside>
       </div>
     )
+  }
+
+  deleteUser(id) {
+    this.setState({
+      users: this.state.users.filter((user) => user.id !== id),
+    })
+  }
+
+  addUser(user) {
+    const id = this.state.users.length + 1
+    this.setState({ users: [...this.state.users, { id, ...user }] })
+  }
+
+  editUser(user) {
+    let allUsers = this.state.users
+
+    allUsers[user.id - 1] = user
+    this.setState({ users: allUsers })
+    console.log(allUsers)
   }
 }
 
