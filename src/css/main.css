@@ -30,6 +30,10 @@ aside {
   margin-left: 5%;
   float: left;
 }
+aside .title {
+  margin-bottom: 20px;
+  text-align: center;
+}
 
 main .user {
   margin-bottom: 30px;
@@ -67,6 +71,12 @@ form button {
   color: #fff;
   outline: none;
   font-size: 15px;
+  border-radius: 6px;
+}
+
+form textarea {
+  resize: none;
+  height: 60px;
 }
 
 form input[type='checkbox'] {
@@ -77,6 +87,7 @@ form button {
   width: 100%;
   cursor: pointer;
   transition: transform 500ms ease;
+  margin-top: 10px;
 }
 
 form button:hover {

@@ -1,7 +1,7 @@
 import React from 'react'
 import { IoCloseCircleSharp, IoHammerSharp } from 'react-icons/io5'
 
-import { AddUserForm } from './AddUserForm'
+import { EditUserForm } from './EditUserForm'
 
 class User extends React.Component {
   constructor(props) {
@@ -28,9 +28,9 @@ class User extends React.Component {
         <p>Возраст: {this.props.user.age}</p>
         <p>{this.props.user.isHappy ? 'Счастлив :)' : 'Несчастен :('}</p>
         {this.state.editForm && (
-          <AddUserForm
+          <EditUserForm
             user={this.props.user}
-            onAdd={this.props.onEdit}
+            onEdit={this.props.onEdit}
             isShow={this.isShow}
           />
         )}

@@ -46,6 +46,7 @@ class App extends React.Component {
           />
         </main>
         <aside>
+          <h4 class="title">Создание нового пользователя:</h4>
           <AddUserForm onAdd={this.addUser} />
         </aside>
       </div>
